@@ -15,7 +15,8 @@ import top.plutomc.plugin.itemcalculator.command.CalculateCommand;
 
 import java.lang.reflect.InvocationTargetException;
 
-@Plugin(name = "${name}", version = "${version}") // Don't modify this! Please modify the variables in gradle.properties file!
+@Plugin(name = "${name}", version = "${version}")
+// Don't modify this! Please modify the variables in gradle.properties file!
 @ApiVersion(ApiVersion.Target.v1_19)
 @Authors({
         @Author("PlutoMC"),
@@ -24,6 +25,10 @@ import java.lang.reflect.InvocationTargetException;
 @Website("plutomc.top")
 @Description("PlutoMC template plugin by DeeChael")
 public final class ItemCalculatorPlugin extends JavaPlugin {
+
+    public static ItemCalculatorPlugin getInstance() {
+        return JavaPlugin.getPlugin(ItemCalculatorPlugin.class);
+    }
 
     @Override
     public void onEnable() {
@@ -47,10 +52,6 @@ public final class ItemCalculatorPlugin extends JavaPlugin {
     @Override
     public void onDisable() {
 
-    }
-
-    public static ItemCalculatorPlugin getInstance() {
-        return JavaPlugin.getPlugin(ItemCalculatorPlugin.class);
     }
 
 }

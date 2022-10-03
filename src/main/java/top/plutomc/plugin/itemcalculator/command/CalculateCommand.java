@@ -3,6 +3,7 @@ package top.plutomc.plugin.itemcalculator.command;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
+import top.plutomc.plugin.itemcalculator.utils.MsgUtil;
 
 import java.util.Arrays;
 
@@ -27,14 +28,14 @@ public final class CalculateCommand extends Command {
             if (isInteger(args[0])) {
                 int number = Integer.parseInt(args[0]);
                 if (number <= 0) {
-                    sender.sendMessage("\u00a7c哎呀！这个数字不是大于0的数字诶~");
+                    sender.sendMessage(MsgUtil.deserialize("<red>哎呀！这个数字不是大于0的数字诶~"));
                     return true;
                 }
                 int shulkerBoxes = number / (27 * 64);
                 number -= shulkerBoxes * 27 * 64;
                 int stacks = number / 64;
                 number -= stacks * 64;
-                StringBuilder builder = new StringBuilder("\u00a7a计算结果出来了哟：");
+                StringBuilder builder = new StringBuilder("<green>计算结果出来了哟：");
                 if (shulkerBoxes != 0) {
                     builder.append(shulkerBoxes).append(" 潜影盒 ");
                 }
@@ -42,18 +43,18 @@ public final class CalculateCommand extends Command {
                     builder.append(stacks).append(" 组 ");
                 }
                 builder.append(number).append(" 个");
-                sender.sendMessage(builder.toString());
+                sender.sendMessage(MsgUtil.deserialize(builder.toString()));
             } else if (isLong(args[0])) {
                 long number = Long.parseLong(args[0]);
                 if (number <= 0) {
-                    sender.sendMessage("\u00a7c哎呀！这个数字不是大于0的数字诶~");
+                    sender.sendMessage(MsgUtil.deserialize("<red>哎呀！这个数字不是大于0的数字诶~"));
                     return true;
                 }
                 long shulkerBoxes = number / (27 * 64);
                 number -= shulkerBoxes * 27 * 64;
                 long stacks = number / 64;
                 number -= stacks * 64;
-                StringBuilder builder = new StringBuilder("\u00a7a计算结果出来了哟：");
+                StringBuilder builder = new StringBuilder("<green>计算结果出来了哟：");
                 if (shulkerBoxes != 0) {
                     builder.append(shulkerBoxes).append(" 潜影盒 ");
                 }
@@ -61,12 +62,12 @@ public final class CalculateCommand extends Command {
                     builder.append(stacks).append(" 组 ");
                 }
                 builder.append(number).append(" 个");
-                sender.sendMessage(builder.toString());
+                sender.sendMessage(MsgUtil.deserialize(builder.toString()));
             } else {
-                sender.sendMessage("\u00a7c需要输入一个整数才能计算数量哦~");
+                sender.sendMessage(MsgUtil.deserialize("<red>需要输入一个整数才能计算数量哦~"));
             }
         } else {
-            sender.sendMessage("\u00a7c请输入 /calc <整数> 来计算数量哦~");
+            sender.sendMessage(MsgUtil.deserialize("<red>请输入 /calc <整数> 来计算数量哦~"));
         }
         return true;
     }
