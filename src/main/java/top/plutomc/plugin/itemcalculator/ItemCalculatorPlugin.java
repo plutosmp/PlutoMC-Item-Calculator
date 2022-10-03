@@ -15,6 +15,7 @@ import top.plutomc.plugin.itemcalculator.command.CalculateCommand;
 
 import java.lang.reflect.InvocationTargetException;
 
+@SuppressWarnings({"all"})
 @Plugin(name = "${name}", version = "${version}")
 // Don't modify this! Please modify the variables in gradle.properties file!
 @ApiVersion(ApiVersion.Target.v1_19)
