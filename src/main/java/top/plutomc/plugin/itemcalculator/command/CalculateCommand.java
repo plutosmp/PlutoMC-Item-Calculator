@@ -89,5 +89,4 @@ public final class CalculateCommand extends Command {
             return false;
         }
     }
-
 }
