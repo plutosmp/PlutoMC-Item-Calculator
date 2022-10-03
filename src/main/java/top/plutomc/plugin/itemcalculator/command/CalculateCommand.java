@@ -5,7 +5,9 @@ import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 import top.plutomc.plugin.itemcalculator.utils.MsgUtil;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public final class CalculateCommand extends Command {
 
@@ -20,6 +22,17 @@ public final class CalculateCommand extends Command {
                 "itemcalculator",
                 "item-calculator"
         ));
+    }
+
+    @Override
+    public @NotNull List<String> tabComplete(@NotNull CommandSender sender, @NotNull String alias, @NotNull String[] args) throws IllegalArgumentException {
+        List<String> list = new ArrayList<>();
+        if (args.length == 1) {
+            list.add("<物品数量>");
+        } else {
+            list.add(" ");
+        }
+        return list;
     }
 
     @Override
