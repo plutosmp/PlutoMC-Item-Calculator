@@ -24,7 +24,7 @@ public final class CalculateCommand extends Command {
 
     @Override
     public boolean execute(@NotNull CommandSender sender, @NotNull String commandLabel, @NotNull String[] args) {
-        if (args.length == 1) {
+        if (args.length >= 1) {
             if (isInteger(args[0])) {
                 int number = Integer.parseInt(args[0]);
                 if (number <= 0) {
