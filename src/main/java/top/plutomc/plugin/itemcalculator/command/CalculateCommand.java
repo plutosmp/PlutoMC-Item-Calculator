@@ -43,6 +43,25 @@ public final class CalculateCommand extends Command {
                 }
                 builder.append(number).append(" 个");
                 sender.sendMessage(builder.toString());
+            } else if (isLong(args[0])) {
+                long number = Long.parseLong(args[0]);
+                if (number <= 0) {
+                    sender.sendMessage("\u00a7c哎呀！这个数字不是大于0的数字诶~");
+                    return true;
+                }
+                long shulkerBoxes = number / (27 * 64);
+                number -= shulkerBoxes * 27 * 64;
+                long stacks = number / 64;
+                number -= stacks * 64;
+                StringBuilder builder = new StringBuilder("\u00a7a计算结果出来了哟：");
+                if (shulkerBoxes != 0) {
+                    builder.append(shulkerBoxes).append(" 潜影盒 ");
+                }
+                if (stacks != 0) {
+                    builder.append(stacks).append(" 组 ");
+                }
+                builder.append(number).append(" 个");
+                sender.sendMessage(builder.toString());
             } else {
                 sender.sendMessage("\u00a7c需要输入一个整数才能计算数量哦~");
             }
@@ -55,6 +74,15 @@ public final class CalculateCommand extends Command {
     private boolean isInteger(String string) {
         try {
             Integer.parseInt(string);
+            return true;
+        } catch (NumberFormatException ignored) {
+            return false;
+        }
+    }
+
+    private boolean isLong(String string) {
+        try {
+            Long.parseLong(string);
             return true;
         } catch (NumberFormatException ignored) {
             return false;
